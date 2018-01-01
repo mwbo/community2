@@ -1,0 +1,45 @@
+	<!DOCTYPE html>	
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">	
+		<title>广大项目演示程序</title>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__static/library/Bootstrap3.3.7/css/bootstrap.min.css">
+		<script type="text/javascript" src="__PUBLIC__static/library/Bootstrap3.3.7/js/jquery-1.11.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__static/index/css/common.css"></head>
+	<body>
+		<!-- md middle device  >	
+		960px
+		<1728px -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<a href="">logo</a>
+					</div>
+					<div class="col-md-2 pull-right">
+					{if $Think.session.uinfo}
+						{$Think.session.uinfo.user_name}
+						<a href="{:url('user/logout')}">退出</a>
+					{else}
+						<a href="{:url('user/login')}">登录</a>
+						<a href="{:url('user/reg')}">注册</a>
+					{/if}
+					</div>
+
+				</div>
+				<header>
+					<!-- nav  bootstrap导航样式 -->
+					<ul class="row nav">
+						<li class="col-md-2">
+							<a href="{:url('index/home')}">首页</a>
+						</li>
+						<li  class="col-md-2">
+							<a href="{:url('lanmu/mianshi')}">面试</a>
+						</li>
+						<li  class="col-md-2">
+							<a href="{:url('lanmu/mianshi')}">社区</a>
+						</li>
+						<li  class="col-md-2">
+							<a href="{:url('lanmu/zhichang')}">职场</a>
+						</li>
+					</ul>
+				</header>

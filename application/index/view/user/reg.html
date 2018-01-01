@@ -1,0 +1,50 @@
+{include file="header"}
+	<h2>欢迎光临</h2>
+	
+	<!-- onsubmit阻止表单提交 -->
+	<form action="{:url('doReg')}" class="form" onsubmit="return check()">
+		<div class="form-group">
+			<label >用户名</label>
+			<input type="text" class="form-control" name="user_name">
+		</div>
+		<div class="form-group">
+			<label >密码</label>
+			<input type="password" class="form-control pwd" name="user_pwd" >
+		</div>
+		<div class="form-group">
+			<label >重复密码</label>
+			<input type="password" class="form-control repwd" name="user_repwd" >
+		</div>
+
+		<div class="form-group">
+			<label >验证码</label>
+			<img class="yzm_img" src="{:captcha_src()}" alt="captcha" onclick="change_cpt()" />
+			 <input type="text" name="yzm" class="form-control">
+		</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-success"  value="我要注册">
+		</div>
+
+	</form>
+	<script type="text/javascript">
+		function change_cpt() {
+			$('.yzm_img').attr('src',"{:captcha_src()}?"+Math.random());
+		}
+		function check() {
+			var uname = $('[name="user_name"').val()
+			var pwd = $('.pwd').val()
+			var repwd = $('.repwd').val()
+			// alert(pwd)
+			if (pwd == '' || uname=='') {
+				alert('信息不完整')
+				return false
+			}
+			else if (pwd != repwd) {
+				alert('密码和重复密码不一样！')
+				return false;
+			}else{
+				return true;
+			}
+		}
+	</script>
+{include file="footer"}
